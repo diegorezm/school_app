@@ -1,4 +1,5 @@
 package com.api.school.Models;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,5 +26,9 @@ public class User {
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
   private String id;
-  private String name, password, email;
+
+  private String username, password;
+  
+  @Column(unique = true)
+  private String email;
 }

@@ -1,5 +1,8 @@
 package com.api.school.Models;
 
+import com.api.school.records.students.StudentRecord;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,5 +29,15 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    private String name, age, course, email;
+    private String name, age, course;
+
+    @Column(unique = true)
+    private String email;
+
+    public Student(StudentRecord data) {
+        this.name = data.name();
+        this.age = data.age();
+        this.course = data.course();
+        this.email = data.email();
+    }
 }
