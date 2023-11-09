@@ -3,6 +3,11 @@
 The School App API is a Java Spring Boot application that interacts with a PostgreSQL database to manage student records.
 
 ## Table of Contents
+- [User](#user)
+  - [Register suer](#register)
+  - [Login](#login)
+  - [Retrieve user information](#retrieve-user-information)
+
 
 - [Students](#students)
   - [Retrieve All Students](#retrieve-all-students)
@@ -10,6 +15,72 @@ The School App API is a Java Spring Boot application that interacts with a Postg
   - [Create a New Student](#create-a-new-student)
   - [Update Student Information](#update-student-information)
   - [Delete Student](#delete-student)
+
+
+## User
+### Register
+**Request:**
+- HTTP Method: `POST`
+- Endpoint: `/auth/register`
+- Description: To register a user.
+
+**Request Body:**
+
+```json
+{
+    "username": "John Doe",
+    "password":"123456",
+    "email": "john.doe@example.com"
+}
+```
+
+**Response:**
+
+- Status Code: 200 (OK)
+- Response Body: nothing
+- Status Code: 500 (Internal Server Error)
+- Response Body: If the API encounters an  error while trying to create the user
+
+### Login
+**Request:**
+- HTTP Method: `POST`
+- Endpoint: `/auth/login`
+- Description: To login a user.
+
+**Request Body:**
+
+```json
+{
+    "password":"123456",
+    "email": "john.doe@example.com"
+}
+```
+
+**Response:**
+
+- Status Code: 200 (OK)
+- Response Body: jwt token
+- Status Code: 403 (Forbidden)
+- Response Body: If the api os not able to identify the user
+- Status Code: 500 (Internal Server Error)
+- Response Body: If the API encounters an  error while trying to create the user
+
+
+### Retrieve User Information
+**Request:**
+- HTTP Method: `GET`
+- Endpoint: `/user`
+- Description: To login a user
+
+**Response:**
+- Status Code: 200 (OK)
+- Response Body: User information
+- Status Code: 403 (Forbidden)
+- Response Body: If the api os not able to identify the user
+- Status Code: 500 (Internal Server Error)
+- Response Body: If the API encounters an  error while trying to retrieve the user
+info
+
 
 ## Students
 

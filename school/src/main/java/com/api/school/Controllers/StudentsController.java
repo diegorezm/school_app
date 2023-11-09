@@ -22,7 +22,7 @@ import com.api.school.records.students.StudentRecord;
 import com.api.school.repo.StudentsRepo;
 
 @RestController
-@RequestMapping("/students")
+@RequestMapping("students")
 
 public class StudentsController {
 
@@ -45,7 +45,7 @@ public class StudentsController {
 
     }
 
-    @GetMapping("/students/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<?> getStudentById(@PathVariable String id) {
         if (id != null) {
             try {
@@ -113,7 +113,7 @@ public class StudentsController {
 
     // METHOD: DELETE
 
-    @DeleteMapping("/students/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteStudentById(@PathVariable String id) {
         try {
             if (id == null) {
