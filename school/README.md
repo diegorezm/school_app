@@ -65,7 +65,7 @@ The Students controller in this API provides the following endpoints to manage s
 }
 ```
 
-### Update student
+### Update student information
 
 **Request:**
 
@@ -94,7 +94,7 @@ The Students controller in this API provides the following endpoints to manage s
 - Response Body: Bad request (if the id == null). 
 
 
-### Delete Student by ID
+### Delete Student 
 
 **Request:**
 
