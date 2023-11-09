@@ -18,6 +18,8 @@ The School App API is a Java Spring Boot application that interacts with a Postg
 
 
 ## User
+Users are the ones supposed to be able to look at the students records, only the
+users with the ADMIN role should be able to create/delete/update the records.
 ### Register
 **Request:**
 - HTTP Method: `POST`
@@ -30,7 +32,8 @@ The School App API is a Java Spring Boot application that interacts with a Postg
 {
     "username": "John Doe",
     "password":"123456",
-    "email": "john.doe@example.com"
+    "email": "john.doe@example.com",
+    "role":"USER"
 }
 ```
 
