@@ -66,7 +66,7 @@ The Students controller in this API provides the following endpoints to manage s
 ```
 **Response:**
 - Status Code: 200 (Ok)
-- Response Body:User created
+- Response Body: Student info
 - Status Code: 400 (Bad Request)
 - Response Body: If the API encounters an  error while trying to create the new student
 
@@ -96,7 +96,7 @@ The Students controller in this API provides the following endpoints to manage s
 - Status Code: 404 (Not Found)
 - Response Body: If the student is not found.
 - Status Code: 400 (Bad Request)
-- Response Body: Bad request (if the id == null). 
+- Response Body: If the user did not  include the '**id**' in the request body
 
 
 ### Delete Student 
