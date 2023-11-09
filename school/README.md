@@ -26,9 +26,9 @@ The Students controller in this API provides the following endpoints to manage s
 **Response:**
 
 - Status Code: 200 (OK)
-- Response Body: A list of student records.
+- Response Body: A list of student records
 - Status Code: 500 (Internal Server Error)
-- Response Body: If the API encounters an  error while trying to retrieve the list of students.
+- Response Body: If the API encounters an  error while trying to retrieve the list of students
 
 
 ### Retrieve Student by ID
@@ -64,6 +64,11 @@ The Students controller in this API provides the following endpoints to manage s
     "email": "john.doe@example.com"
 }
 ```
+**Response:**
+- Status Code: 200 (Ok)
+- Response Body:User created
+- Status Code: 400 (Bad Request)
+- Response Body: If the API encounters an  error while trying to create the new student
 
 ### Update student information
 
