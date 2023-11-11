@@ -75,7 +75,7 @@ users with the ADMIN role should be able to create/delete/update the records.
 **Request:**
 - HTTP Method: `GET`
 - Endpoint: `/user`
-- Description: To login a user
+- Description: To get the information from the user token 
 
 **Response:**
 - Status Code: 200 (OK)
