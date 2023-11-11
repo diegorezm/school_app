@@ -23,16 +23,16 @@ export const useAuthStore = create<AuthStore, [["zustand/persist", "unknown"]]>(
     (set) => ({
       user: initialState,
       setUser: (user: User) => set({ user }),
-      token: "",
-      setToken: (token: string) => set({ token }),
+      token: null,
+      setToken: (newToken: string) => set({ token: newToken }),
       reset: () => set({
         user: initialState,
-        token: ""
+        token: null
       })
     }),
     {
       name: "auth_storage",
-      storage: createJSONStorage(() => localStorage),
+      storage: createJSONStorage(() => sessionStorage),
       onRehydrateStorage: (state) => {
         return (state, error) => {
           if (error) {
@@ -40,16 +40,17 @@ export const useAuthStore = create<AuthStore, [["zustand/persist", "unknown"]]>(
           } else {
             if (state) {
               if (state.token) {
-                axios.defaults.headers.common.Authorization = `Bearer ${state.token}`
+                axios.defaults.headers.Authorization = `Bearer ${state.token}`
               }
             }
           }
         }
+
       }
     }
   )
 )
 
+
 export const clear = () => useAuthStore.persist.clearStorage()
 export const rehydrate = async () => await useAuthStore.persist.rehydrate()
-

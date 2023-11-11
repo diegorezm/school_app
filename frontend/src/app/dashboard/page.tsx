@@ -47,7 +47,6 @@ export default function Dashboard() {
 
   const fetchStudents = async () => {
     const request = await getAllStudents()
-    console.log(request)
     if (request.success) {
       if (request.students) {
         setArrayStudents([...request.students])
@@ -139,7 +138,7 @@ export default function Dashboard() {
                 <TableCell className="text-right">{student.age}</TableCell>
                 <TableCell className="text-right">{student.course}</TableCell>
 
-                <TableCell className="text-right">
+                <TableCell className="flex justify-end">
                   <Tooltip title='Edit' className='my-2 text-md'>
                     <DialogTrigger onClick={() => handleEditDialog(student)}>
                       <div className='border border-border w-8 h-8 flex justify-center items-center text-md lg:text-xl lg:h-10 lg:w-10 hover:bg-primary transition-all rounded-lg'>

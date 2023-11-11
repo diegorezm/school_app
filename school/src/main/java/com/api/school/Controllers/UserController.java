@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.api.school.infra.security.SecurityFilter;
 import com.api.school.infra.security.TokenService;
 import com.api.school.records.error.ErrorMessages;
-import com.api.school.records.users.UserResponseRecord;
 import com.api.school.repo.UsersRepo;
 
 import jakarta.servlet.http.HttpServletRequest;

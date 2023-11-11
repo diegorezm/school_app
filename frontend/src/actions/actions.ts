@@ -99,9 +99,7 @@ export const register: Register = async (user) => {
   return response;
 };
 
-
 // Students
-
 export const getAllStudents: GetStudents = async () => {
   let response: Response = {
     message: "",

@@ -1,6 +1,7 @@
 import { Student } from "@/interface/Student"
 import { User } from "@/interface/User"
 
+// default response
 export type Response = {
   message: string,
   success: boolean,
@@ -10,10 +11,9 @@ export type Response = {
   student?: Student
 }
 
+// user
 export type Login = (email: string, password: string) => Promise<Response>
-
 export type Register = (user: User) => Promise<Response>
-
 export type userData = () => Promise<Response>
 
 // students
