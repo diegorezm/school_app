@@ -2,6 +2,8 @@
 
 The School App API is a Java Spring Boot application that interacts with a PostgreSQL database to manage student records.
 
+Roles: ["USER", "ADMIN"]
+
 ## Table of Contents
 - [User](#user)
   - [Register suer](#register)

@@ -18,6 +18,7 @@ import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 
 import com.api.school.Models.Student;
+import com.api.school.records.error.ErrorMessages;
 import com.api.school.records.students.StudentRecord;
 import com.api.school.repo.StudentsRepo;
 
@@ -38,9 +39,9 @@ public class StudentsController {
             System.out.println(allStudents.getClass());
             return ResponseEntity.ok(allStudents);
         } catch (Exception e) {
-           String errorMessage = (e.getMessage() != null && !e.getMessage().isEmpty()) ? e.getMessage()
-                        : "An unspecified error occurred while retrieving the student list.";
-                return ResponseEntity.status(500).body(errorMessage);
+            String errorMessage = (e.getMessage() != null && !e.getMessage().isEmpty()) ? e.getMessage()
+                    : "An unspecified error occurred while retrieving the student list.";
+            return ResponseEntity.status(500).body(new ErrorMessages(errorMessage));
         }
 
     }
@@ -59,7 +60,7 @@ public class StudentsController {
             } catch (Exception e) {
                 String errorMessage = (e.getMessage() != null && !e.getMessage().isEmpty()) ? e.getMessage()
                         : "An unspecified error occurred while retrieving the student.";
-                return ResponseEntity.badRequest().body(errorMessage);
+                return ResponseEntity.status(500).body(new ErrorMessages(errorMessage));
             }
         } else {
             return ResponseEntity.badRequest().body("The 'id' query parameter is missing.");
@@ -77,7 +78,7 @@ public class StudentsController {
         } catch (Exception e) {
             String errorMessage = (e.getMessage() != null && !e.getMessage().isEmpty()) ? e.getMessage()
                     : "Registration failed due to an unspecified error.";
-            return ResponseEntity.badRequest().body(errorMessage);
+            return ResponseEntity.status(500).body(new ErrorMessages(errorMessage));
         }
     }
 
@@ -104,7 +105,7 @@ public class StudentsController {
             } catch (Exception e) {
                 String errorMessage = (e.getMessage() != null && !e.getMessage().isEmpty()) ? e.getMessage()
                         : "Update failed due to an unspecified error.";
-                return ResponseEntity.badRequest().body(errorMessage);
+                return ResponseEntity.status(500).body(new ErrorMessages(errorMessage));
             }
         } else {
             return ResponseEntity.badRequest().build();

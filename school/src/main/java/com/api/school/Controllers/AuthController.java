@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.api.school.Models.User;
 import com.api.school.infra.security.TokenService;
 import com.api.school.records.Auth.AuthenticationDTO;
+import com.api.school.records.error.ErrorMessages;
 import com.api.school.records.token.TokenRecordDTO;
 import com.api.school.records.users.UsersRecord;
 import com.api.school.repo.UsersRepo;
@@ -40,7 +41,10 @@ public class AuthController {
       var token = tokenService.genToken((User) auth.getPrincipal());
       return ResponseEntity.ok(new TokenRecordDTO(token));
     } catch (Exception e) {
-      return ResponseEntity.status(500).build();
+      System.out.println(e);
+    String errorMessage = (e.getMessage() != null && !e.getMessage().isEmpty()) ? e.getMessage()
+          : "An unspecified error occurred while trying to generate the user token.";
+     return ResponseEntity.status(500).body(new ErrorMessages(errorMessage));
     }
   }
 
@@ -57,7 +61,7 @@ public class AuthController {
     } catch (Exception e) {
       String errorMessage = (e.getMessage() != null && !e.getMessage().isEmpty()) ? e.getMessage()
           : "An unspecified error occurred while trying to create the user.";
-      return ResponseEntity.status(500).body(errorMessage);
+     return ResponseEntity.status(500).body(new ErrorMessages(errorMessage));
     }
 
   }
