@@ -30,4 +30,5 @@ git clone https://github.com/diegorezm/school_app && cd frontend && npm i && npm
 Keep in mind that most features on the frontend will only work with the API running.
 
 # Known issues
- - For some reason, the api is not able to read the Authorization token after some amount of requests, it keeps printing "null", i don't really know why this happens.
+ - When i rebuild the page (saving while i'm coding) the authorization token stops being sent to the backend. As long as i don't change anything in the code itself
+ it is fine.
