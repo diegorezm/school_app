@@ -10,7 +10,7 @@ To run the API:
 - Create an account on [ElephantSQL](https://www.elephantsql.com/) and create an instance.
 - Run the following command (on Linux/Mac):
     ```bash
-    git clone https://github.com/diegorezm/students-app && cd school && touch src/main/resources/env.properties
+    git clone https://github.com/diegorezm/school_app && cd school && touch src/main/resources/env.properties
     ```
 - Create the environmental variables:
   - **DB_NAME='DB_URL'**
