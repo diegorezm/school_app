@@ -29,6 +29,10 @@ git clone https://github.com/diegorezm/school_app && cd frontend && npm i && npm
 
 Keep in mind that most features on the frontend will only work with the API running.
 
+#   Show case 
+
+(Click here to see the youtube video!)[https://www.youtube.com/watch?v=5Qfbx32a8pQ]
+
 # Known issues
  - When i rebuild the page (saving while i'm coding) the authorization token stops being sent to the backend. As long as i don't change anything in the code itself
  it is fine.
